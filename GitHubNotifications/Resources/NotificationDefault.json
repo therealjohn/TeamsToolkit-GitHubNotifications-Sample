@@ -1,0 +1,48 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${title}",
+      "size": "Large",
+      "weight": "Bolder",
+      "wrap": true
+    },
+    {
+      "type": "ColumnSet",
+      "separator": true,
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${description}",
+              "isSubtle": true,
+              "weight": "Bolder",
+              "wrap": true
+            },
+            {
+              "$data": "${issues}",
+              "type": "TextBlock",
+              "text": "[#${number} ${title}](${url})",
+              "spacing": "Small",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.OpenUrl",
+      "title": "View all Assigned Issues",
+      "url": "${notificationUrl}"
+    }
+  ]
+}
